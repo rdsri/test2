@@ -1,0 +1,80 @@
+
+<div id='first'>
+<title>multiple-choice quiz form</title>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<h3>Vocabulary Quiz I</h3>
+
+
+
+<!-- <form method="post" action="" enctype="text/plain"> -->
+<body>
+Check the answer to each multiple-coice question, and click on the "Send Form" button to submit the information.
+<fieldset>
+<P>1. The word which means "house" is:<BR>
+<input type="radio" name="1" value="maison" id="an1">maison<BR>
+<input type="radio" name="1" value="quatre" id="an1">quatre<BR>
+<input type="radio" name="1" value="soleil" id="an1">soleil<BR>
+<input type="radio" name="1" value="poisson" id="an1">poisson<BR>
+</p>
+
+<P>2. The word which means "fish" is:<BR>
+<input type="radio" name="2" value="maison" id="an2">maison<BR>
+<input type="radio" name="2" value="valise" id="an2">valise<BR>
+<input type="radio" name="2" value="soleil" id="an2">soleil<BR>
+<input type="radio" name="2" value="poisson" id="an2">poisson<BR>
+</p>
+
+<P>3. The word which means "suitcase" is:<BR>
+<input type="radio" name="3" value="renard" id="an3">renard<BR>
+<input type="radio" name="3" value="valise" id="an3">valise<BR>
+<input type="radio" name="3" value="soleil" id="an3">soleil<BR>
+<input type="radio" name="3" value="poisson" id="an3">poisson<BR>
+
+</p>
+</fieldset>
+<br>
+<br>
+<br>
+<br>
+    <button type="button"  id="sri" style="background-color:dodgerblue;height: 28px;width:116px"> 
+        Submit 
+    </button> 
+</body>
+</div>
+<div id="result"></div> 
+<script type="text/javascript">
+    $(document).ready( function() {
+        $('#sri').click(function(){
+            var ans1= $("input[name='1']:checked").val() 
+            var ans2= $("input[name='2']:checked").val()
+            var ans3= $("input[name='3']:checked").val()
+            console.log(ans1,'sss')
+            console.log(ans2,'sss')
+            console.log(ans3,'sss')
+
+
+            $.ajax({
+                url: '/test/answer',
+                type:"POST",
+                data:{'val':ans1,'val2':ans2,'val3':ans3},
+                success:function(response){
+                  
+                  var data=JSON.parse(response)
+                  console.log(data)
+                  var value=data['html']
+                  $('#first').hide()
+                  $('#result').html(value)
+                }
+
+                })
+        })
+    });
+
+
+</script> 
+
+
+
+
+

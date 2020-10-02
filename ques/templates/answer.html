@@ -1,0 +1,59 @@
+
+
+<h3>Vocabulary Quiz I</h3>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!-- <form method="post" action="" enctype="text/plain"> -->
+<div id='first'>
+Check the answer to each multiple-coice question, and click on the "Send Form" button to submit the information.
+<fieldset>
+<P>1. The word which means "house" is:<BR>
+<input type="radio" name="1" value="maison" id="an1">maison<BR>
+<input type="radio" name="1" value="quatre" id="an1">quatre<BR>
+<input type="radio" name="1" value="soleil" id="an1">soleil<BR>
+<input type="radio" name="1" value="poisson" id="an1">poisson<BR><BR>
+<button style="background-color:lawngreen">ANSWER</button>	:{{ans1}}
+</p>
+
+<P>2. The word which means "fish" is:<BR>
+<input type="radio" name="2" value="maison" id="an2">maison<BR>
+<input type="radio" name="2" value="valise" id="an2">valise<BR>
+<input type="radio" name="2" value="soleil" id="an2">soleil<BR>
+<input type="radio" name="2" value="poisson" id="an2">poisson<BR><BR>
+<button style="background-color: lawngreen">ANSWER</button>	:{{ans2}}
+</p>
+
+<P>3. The word which means "suitcase" is:<BR>
+<input type="radio" name="3" value="renard" id="an3">renard<BR>
+<input type="radio" name="3" value="valise" id="an3">valise<BR>
+<input type="radio" name="3" value="soleil" id="an3">soleil<BR>
+<input type="radio" name="3" value="poisson" id="an3">poisson<BR><BR>
+<button style="background-color:lawngreen">ANSWER</button>	:{{ans3}}
+</p>
+</fieldset><br><br>
+
+<h3>RIGHT:{{right}}</h3>>
+<h3>WRONG:{{wrong}}</h3>
+<script type="text/javascript">
+	$(document).ready( function() {
+		 var value1='{{sel1}}'
+         var value2='{{sel2}}'
+         var value3='{{sel3}}'
+         $("input[name=1][value=" + value1 + "]").prop('checked', true)
+         $("input[name=2][value=" + value2 + "]").prop('checked', true)
+	     $("input[name=3][value=" + value3 + "]").prop('checked', true)
+    })
+</script>
+<style>
+	#an1input[name=1] {
+  display: none;
+}
+
+  #an1 input[name=1]:checked + label > img {
+  background: url("https://cdn0.iconfinder.com/data/icons/small-n-flat/24/678134-sign-check-128.png") no-repeat;
+}
+#an1 input[name=1]:hover + label  >img {
+  -webkit-transform: scale(1.3);
+  -ms-transform: scale(1.3);
+  transform: scale(1.3);
+}
+</style>
